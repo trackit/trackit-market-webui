@@ -2,6 +2,8 @@ version: 2
 jobs:
   deploy_prod:
     working_directory: ~/trackit-market-webui
+    docker:
+      - image: msolution/trackit2-builder-ui
     steps:
       - checkout
       - run:
