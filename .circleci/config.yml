@@ -1,0 +1,25 @@
+version: 2
+jobs:
+  deploy_prod:
+    working_directory: ~/trackit-market-webui
+    steps:
+      - checkout
+      - run:
+          name: Installing NPM dependencies
+          command: yarn install
+      - run:
+          name: Building
+          command: yarn run build
+      - deploy:
+          name: Deploying
+          command: aws s3 sync --delete build/ $S3_MARKET_DESTINATION
+workflows:
+  version: 2
+  test-and-deploy:
+    jobs:
+      - test
+      - deploy_prod:
+          filters:
+            branches:
+              only:
+                - master
