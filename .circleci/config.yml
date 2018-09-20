@@ -15,11 +15,3 @@ jobs:
           command: aws s3 sync --delete build/ $S3_MARKET_DESTINATION
 workflows:
   version: 2
-  test-and-deploy:
-    jobs:
-      - test
-      - deploy_prod:
-          filters:
-            branches:
-              only:
-                - master
