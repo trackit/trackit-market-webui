@@ -20,7 +20,7 @@ workflows:
   deploy:
     jobs:
       - deploy_prod:
-        filters:
-          branches:
-            only:
-              - master
+          filters:
+            branches:
+              only:
+                - master
