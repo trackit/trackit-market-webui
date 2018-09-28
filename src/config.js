@@ -1,3 +1,3 @@
 export default {
-  apiUrl: `${window.location.protocol}//${window.location.hostname}/api`,
+  apiUrl: `http://job-msol-market-1111157101.us-west-2.elb.amazonaws.com`,
 }
